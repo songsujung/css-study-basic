@@ -5,49 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML 문서</title>
     <style>
-        /* 의사클래스(가상클래스) : 요소가 어떤 특정한 상태가 되었을 때 요소를 선택하겠다는 의미*/
-        /* hover(마우스가 요소에 올라가 있는상태), active(마우스로 요소 누른 상태), focus(요소가 포커스 받음), disavled(비활성 상태의 요소), nth-child()(형제 사이에서 순서에 따라 요소 선택) */
-        /* input 요소에 마우스 커서가 올라온 상태(hover)가되면 백그라운드색상이 tomato로 바뀌고, 마우스로 누른 상태일때 black으로 바뀜*/
-        /* input:hover {
-            background-color: tomato;
+        /* 의사요소: (의사클래스와는 무관함) 선택자에 추가하는 키워드로, 이를 이용하면 선택한 요소의 특정 부분에 대한 스타일을 정의할 수 있다. */
+        /* before(텍스트 앞에 추가), after(텍스트 뒤에 추가), first-line(첫 번째 줄만 변경), marker(목록의 글머리 기호를 변경), placeholder(input창 안의 글씨를 변경) */
+        /* li::first-letter : li 요소의 첫 번째 글자만 크기를 20px로 하겠다.(기본값은 16px) */
+        p::before {
+            content:"앞에 추가한 텍스트";
+            color: red;
         }
-        input:active {
-            background-color: black;
+        p::after {
+            content:"뒤에 추가한 텍스트";
+            color: blue;
         }
-        input {
-            width: 100px; height: 30px;
-            background-color: gray; color: white;
-            border: none; border-radius: 8px;
-        } */
-
-        /* focus(입력하려고 누르면 백그라운드색상 red로 바뀜), disabled(disabled상태일 때 세로길이가 100px) */
-        /* input:focus {
-            background-color: red;
-            color: white;
+        li::first-letter{
+            font-size: 20px;
         }
-        input:disabled{
-            height: 100px;
-        } */
-
-        /* nth-child(3) : 5개의 박스 중 3번째 박스를 레드로
-           2n, 2n -1 등 수식을 사용할 수도 있다.*/
-        .box{
-            width: 50px; height: 50px;
-            background-color: blue; color: white;
+        li::marker{
+            color: teal;
         }
-        .box:nth-child(2n) {
-            background-color: red;
+        input::placeholder{
+            font-size: 24px;
+            color: black;
         }
-
     </style>
 </head>
 <body>
-    <!-- <input type="button" value="버튼"> -->
-    <!-- <input type="text" placeholder="아무거나 쓰기" disabled> -->
-    <div class="box">1번</div>
-    <div class="box">2번</div>
-    <div class="box">3번</div>
-    <div class="box">4번</div>
-    <div class="box">5번</div>
+    <p>원래 쓰여 있던 내용</p>
+    <input type="text" placeholder="아무거나 쓰세요!">
+    <ul>
+        <li>아메리카노</li>
+        <li>카페라떼</li>
+        <li>카푸치노</li>
+    </ul>
 </body>
 </html>
