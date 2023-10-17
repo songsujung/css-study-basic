@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML 문서</title>
-    <link href="./style.css" rel="styleSheet">
     <style>
-        /* 블록 레벨 요소 : 자기가 속한 영역의 너비를 모두 차지하여 블록을 형성- 글씨가 있는 한 줄 전체(ex. div, p, h1 등) */
-        /* 인라인 요소 : 자기에게 필요한 만큼의 공간만 차지- 글씨 크기만큼(ex. span, a 등) */
-        /* display 속성으로 블록 레벨 요소를 인라인으로, 인라인 요소를 블록으로 처리 가능하다.
-            display의 속성 값 : inline, block, inline-block(인라인 배치하되, 블록 레벨 요소의 속성 추가 가능-인라인요소에 높이와 너비 추가가능해짐), none(존재하지만 보이지 않게) */
-        /* border : 요소의 테투리 두께(width), 모양(style), 색상(color) 지정(단축 속성이라 함) */
-        div {      
-            display: inline; 
-            border: 2px solid red;
-        }
-        span {
-            border-width: 2px;
-            border-style: dotted;
-            border-color: blue;
+        /* 
+            콘텐츠 영역 : width, height (테두리부터 안, 밖 여백을 아우르는 콘텐츠 영역 크기조정)
+            안쪽 여백 : padding (접미사를 붙여 상(top), 하(bottom), 좌(left), 우(right)를 개별 지정 가능)
+            바깥쪽 여백 : margin (padding과 같이 접미사를 붙여 개별 지정 가능)
+            테두리 : border-width
+            ! span 태그같은 인라인 요소는 width와 height를 지정할 수 없음(inline-block display속성을 사용하면 가능)
+
+            ! padding, margin쓸때 상하좌우 네면의 여백을 한꺼번에 지정가능
+                div { padding: 20px 5px 30px 5px;﻿ } 상, 우, 하, 좌 - 시계방향
+                div { padding: 20px 5px 30px;﻿ } 상, 좌우, 하
+                div { padding: 20px 5px; } 상하, 좌우
+
+            ! 콘텐츠 영역, 안쪽 여백, 테두리까지가 요소의 실제 크기, 바깥쪽 여백은 요소간의 거리를 조절한다고 정의
+                즉, 요소 width, height의 크기가 100px x 100px이라도, 테두리가 5px이면, 110px x 110px이 됨 (padding값이 있다면 그 값도 더해서 계산)
+            ! box-sizing 속성 : padding이나 테두리때문에 사이즈가 바뀌는 것이 불편할 때에 사용
+                : content-box(기본값), 
+                  border-box(padding, 테두리가 커짐으로 인해 요소가 커지는 현상을 막음)
+                  -> 테두리나, padding을 포함해 요소의 크기가 지정됨. 그렇기 때문에 테두리나, padding의 크기가 커지면 컨텐츠 영역이 작아짐
+        */
+        div {
+            box-sizing: border-box;
+            border: 5px solid red;
+            padding: 10px 5px 20px 5px;
+            margin: 20px;
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
 <body>
-    <div>블록 레벨 요소</div>
-    <span>인라인 요소</span>
+    <div>요소의 콘텐츠</div>
 </body>
 </html>
