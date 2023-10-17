@@ -6,31 +6,24 @@
     <title>HTML 문서</title>
     <link href="./style.css" rel="styleSheet">
     <style>
-        /* font-family : 텍스트의 글꼴 정의 */
-        /* Times를 우선 지정하고, 컴퓨터내에 지원되지 않는 글꼴인 경우 다음으로 monospace를 지정한다. */
-        * {
-            font-family: Times, monospace, serif;
+        /* 블록 레벨 요소 : 자기가 속한 영역의 너비를 모두 차지하여 블록을 형성- 글씨가 있는 한 줄 전체(ex. div, p, h1 등) */
+        /* 인라인 요소 : 자기에게 필요한 만큼의 공간만 차지- 글씨 크기만큼(ex. span, a 등) */
+        /* display 속성으로 블록 레벨 요소를 인라인으로, 인라인 요소를 블록으로 처리 가능하다.
+            display의 속성 값 : inline, block, inline-block(인라인 배치하되, 블록 레벨 요소의 속성 추가 가능-인라인요소에 높이와 너비 추가가능해짐), none(존재하지만 보이지 않게) */
+        /* border : 요소의 테투리 두께(width), 모양(style), 색상(color) 지정(단축 속성이라 함) */
+        div {      
+            display: inline; 
+            border: 2px solid red;
         }
-        
-        /* font-size : 텍스트의 크기 정의 */
-        /* 단위 : px(모니터 상의 화소 하나 크기), rem(최상위 태그 폰트사이즈의 배수), em(부모태그인 상위 태그 폰트사이즈의 배수) */
-        html { font-size: 18px; }
-        h1 { font-size: 2rem; }
-        p { font-size: 1rem;}
-        span { font-size: 1.5em}
-
-        /* text-align : 텍스트의 정렬 방식 정의 */
-        /* left, right, center, justify(양끝 정렬, 마지막 줄 제외) */
-
-        /* color : 텍스트의 색상 정의 */
-        /* 키워드(red), RGB 색상 코드(#FF0000), RGB 함수(rgb(100%, 0%, 0%))
-            RGB란? 빛의 삼원색을 혼합하여 색을 정의하는 방식, 모든 수치가 가장 높을 때 흰색이 된다. */
+        span {
+            border-width: 2px;
+            border-style: dotted;
+            border-color: blue;
+        }
     </style>
 </head>
 <body>
-    <h1>제목</h1>
-    <p>내용입니다.
-        <span>부가내용입니다.</span>
-    </p>
+    <div>블록 레벨 요소</div>
+    <span>인라인 요소</span>
 </body>
 </html>
