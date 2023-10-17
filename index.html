@@ -5,10 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML 문서</title>
     <link href="./style.css" rel="styleSheet">
+    <style>
+        /* 기본 선택자(전체선택자, 아이디선택자, 클래스선택자, 태그선택자) */
+        * { color: yellow; }
+        #gagaga{ color: orange; }
+        .text { color: red; } 
+        p { color: green; }
+
+        /* 그룹 선택자 */
+        h1, p { color: purple; }
+
+        /* 태그 우선순위 
+         1. 아이디 선택자 > 클래스 선택자 > 태그 선택자
+         2. 동일한 선택자가 중복된 경우엔 나중에 입력한 태그가 실행됨 (h1=red, h1=green일때 뒤에 작성한 green이 실행)
+        */
+    </style>
 </head>
 <body>
-    <p>
-        HTML start
-    </p>
+    <h1 class="text"> 제목 </h1>
+    <p id="gagaga">가가가</p>
+    <p class="text">나나나</p>
+    <p id="dadada">다다다</p>
 </body>
 </html>
