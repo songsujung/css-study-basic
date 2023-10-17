@@ -6,25 +6,31 @@
     <title>HTML 문서</title>
     <link href="./style.css" rel="styleSheet">
     <style>
-        /* 기본 선택자(전체선택자, 아이디선택자, 클래스선택자, 태그선택자) */
-        * { color: yellow; }
-        #gagaga{ color: orange; }
-        .text { color: red; } 
-        p { color: green; }
+        /* font-family : 텍스트의 글꼴 정의 */
+        /* Times를 우선 지정하고, 컴퓨터내에 지원되지 않는 글꼴인 경우 다음으로 monospace를 지정한다. */
+        * {
+            font-family: Times, monospace, serif;
+        }
+        
+        /* font-size : 텍스트의 크기 정의 */
+        /* 단위 : px(모니터 상의 화소 하나 크기), rem(최상위 태그 폰트사이즈의 배수), em(부모태그인 상위 태그 폰트사이즈의 배수) */
+        html { font-size: 18px; }
+        h1 { font-size: 2rem; }
+        p { font-size: 1rem;}
+        span { font-size: 1.5em}
 
-        /* 그룹 선택자 */
-        h1, p { color: purple; }
+        /* text-align : 텍스트의 정렬 방식 정의 */
+        /* left, right, center, justify(양끝 정렬, 마지막 줄 제외) */
 
-        /* 태그 우선순위 
-         1. 아이디 선택자 > 클래스 선택자 > 태그 선택자
-         2. 동일한 선택자가 중복된 경우엔 나중에 입력한 태그가 실행됨 (h1=red, h1=green일때 뒤에 작성한 green이 실행)
-        */
+        /* color : 텍스트의 색상 정의 */
+        /* 키워드(red), RGB 색상 코드(#FF0000), RGB 함수(rgb(100%, 0%, 0%))
+            RGB란? 빛의 삼원색을 혼합하여 색을 정의하는 방식, 모든 수치가 가장 높을 때 흰색이 된다. */
     </style>
 </head>
 <body>
-    <h1 class="text"> 제목 </h1>
-    <p id="gagaga">가가가</p>
-    <p class="text">나나나</p>
-    <p id="dadada">다다다</p>
+    <h1>제목</h1>
+    <p>내용입니다.
+        <span>부가내용입니다.</span>
+    </p>
 </body>
 </html>
