@@ -7,23 +7,32 @@
     <style>
         /* flexbox : 박스 내 요소 간의 공간 배분과 정렬 기능을 제공하기 위한 1차원 레이아웃 모델(레이아웃을 다룰 때 한 번에 하나의 차원(행or 열)만을 다룬다는 특성) */
         /* 
-           display : flex; (진행방향이 기본적으로 가로방향이고, 다른 flex속성을 사용할 때 항상 있어야함),
-           flex-direction(요소를 배치할 때 사용할 주축(가로 or 세로) 및 방향(진행방향-정방향 or 역방향)) - row, row-reverse, colum, colum-reverse
-            */
+           justify-content : 주축 배치 방법-가로기준 (center(가운데), flex-start(앞쪽), flex-end(끝쪽), space-around(요소간의 여백을 일정하게), space-between(여백일정, 요소의 앞뒤는 양끝에 붙게))
+           align-items : 교차축 배치 방법-세로기준 (center(가운데), flex-start(앞쪽-위), flex-end(끝쪽-밑))
+           align-self : 교차축 개별요소 배치 방법 (하나의 요소에만 적용하기 위한 속성)
+           flex-wrap : 줄 바꿈 여부(nowrap(기본상태), wrap(컨테이너안의 요소들의 크기가 컨테이너보다 크면 넘어가는게 아니라 서로 겹쳐지는데, 겹쳐지지 않고 줄을 바꿈))
+        */
         .container{ 
             display: flex;
-            flex-direction: column-reverse;
+            width: 300px; height: 300px;
+            border: 2px solid black;
+            flex-wrap: wrap;
+            /* justify-content: center;
+            align-items: flex-end; */
         }
         .item{
-            width: 80px; height: 80px;
-            background-color: orange;
+            width: 120px; height: 60px;
+            background-color: teal;
+        }
+        .self{
+            /* align-self: flex-start; */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="item">1</div>
-        <div class="item">2</div>
+        <div class="item self">2</div>
         <div class="item">3</div>
     </div>
 </body>
