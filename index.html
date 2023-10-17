@@ -11,27 +11,34 @@
            relative(일반적인 흐름으로 배치, 상하좌우 위치 값에 따라 오프셋 적용),
            absolute(일반적인 흐름 제거, 상위요소 중 가장 가까운 position 지정요소에 대해 상대적으로 오프셋 허용, 상위요소 중 포지션 정의를 하고 있지 않으면 브라우저 기준으로 오프셋),
            fixed(일반적인 흐름 제거, 지정한 위치에 고정),
-           sticky(일반적인 흐름 제거, 스크롤 동작이 존재하는 가장 가까운 요소에 대해 오프셋 적용)
+           sticky(기본적으로 일반적인 흐름대로 가다가, 스크롤 동작시 제거되고, 존재하는 가장 가까운 요소에 대해 오프셋 적용)
         */
-        div{
+        .pos{
             width: 200px; height: 200px;
-            background-color: yellow;
-            position: relative;
-            border: 1px solid black;
-        }
-        .abs{
-            width: 100px; height: 100px;
-            background-color: red;
-            position: absolute;
-            top: 100px
+            background-color: tomato;
+            position: sticky;
+            /* position: fixed; */
+            top: 50px; left: 50px;
         }
     </style>
 </head>
 <body>
-    <div></div>
     <div>
-        <div class="abs"></div>
-        <p>ppppp</p>
+        첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>
+        첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>
+        첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>
+        첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>
+        첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>
+        첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>첫번째<br/>
+    </div>
+    <div class="pos"></div>
+    <div>
+        두번째<br/>두번째<br/>두번째<br/>두번째<br/>두번째<br/>
+        두번째<br/>두번째<br/>두번째<br/>두번째<br/>두번째<br/>
+        두번째<br/>두번째<br/>두번째<br/>두번째<br/>두번째<br/>
+        두번째<br/>두번째<br/>두번째<br/>두번째<br/>두번째<br/>
+        두번째<br/>두번째<br/>두번째<br/>두번째<br/>두번째<br/>
+        두번째<br/>두번째<br/>두번째<br/>두번째<br/>두번째<br/>
     </div>
 </body>
 </html>
