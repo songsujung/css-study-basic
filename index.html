@@ -5,40 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML 문서</title>
     <style>
-      /* inherit(상속-Inheritance) : 하위 요소가 상위 요소의 스타일 속성값을 물려받는 것(하위요소가 자기 스타일이 없는 경우에만 상속) */
-      /* 상속이 되는 속성과 안되는 속성이 있다! (안되는 속성 예. background(color,image,repeat), border, display, width, height 등) */
+      /* 
+        z-index : 요소의 쌓임 순서(stack order)를 정의할 수 있다.
+        정수 값을 지정하여 쌓임 맥락(stacking context)에서 레벨을 정의하는 방식으로 적용, 위치 지정 요소에 대해 적용할 수 있는 속성
+      */
+      /* 위치 지정 요소란? position 속성이 정의되어 있는 요소를 말한다. */
+      /* 새로운 쌓임 맥락 : z-index로 정수값을 지정하면 정수값이 낮은 수부터 높은 수로 쌓아 올려진다. */
 
-      /* initial : 상속의 기본값 */
-
-      /* unset(inherit과 initial 조합) : 상속 속성에는 inherit처럼, 상속되지 않는 속성은 initial처럼 적용 */
+      /* z-index없이 평소대로 입력하면 요소들이 겹치게 되는데, 이때 첫번째 요소가 먼저 깔리고 그 위에 2번 요소가 위로 덮어져서 겹쳐 쌓인다. 3, 4번도 마찬가지로 3은 2의 위로, 4는 3의 위로 */
       div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 300px;
-        height: 300px;
-
-        color: tomato;
-        font-size: 32px;
-        border: 3px dashed red;
+        width: 100px;
+        height: 100px;
+        position: relative;
       }
-      p {
-        /* 
-            상속받으면 tomato색이어야 하지만 initial을 사옹해 color의 기본값인 검정으로,
-            font-size와 border는 inherit해서 상위요소 속성을 상속받는다.(border같은 경우엔 원래 상속이 안되는 속성인데, inherit사용으로 상속이 가능해짐)
-            font-family와 background-color를 unset으로 지정하면, font-family는 원래 상속받는 속성이니까 inherit으로, background-color는 상속되지 않는 속성이니까 initial로
-        */
-        color: initial;
-        font-size: inherit;
-        border: inherit;
-        font-family: unset;
-        background-color: unset;
+      div:nth-child(1) {
+        background-color: yellow;
+      }
+      div:nth-child(2) {
+        background-color: cyan;
+        bottom: 50px;
+      }
+      div:nth-child(3) {
+        background-color: ivory;
+        bottom: 100px;
+      }
+      div:nth-child(4) {
+        background-color: mediumslateblue;
+        bottom: 150px;
+      }
+
+      /* 두 번째를 첫 번째보다 더 작은 수인 0으로 하면 첫 번째 위로 덮어져서 첫 번째가 완전히 가려진 상태로 보인다. */
+      .first {
+        z-index: 1;
+      }
+      .second {
+        z-index: 0;
+      }
+      .third {
+        z-index: 2;
+      }
+      .fourth {
+        z-index: 3;
       }
     </style>
   </head>
   <body>
-    <div>
-      <p>가운데 p 태그</p>
-    </div>
+    <div class="first">1</div>
+    <div class="second">2</div>
+    <div class="third">3</div>
+    <div class="fourth">4</div>
   </body>
 </html>
