@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML 문서</title>
     <style>
-        /* 의사요소: (의사클래스와는 무관함) 선택자에 추가하는 키워드로, 이를 이용하면 선택한 요소의 특정 부분에 대한 스타일을 정의할 수 있다. */
-        /* before(텍스트 앞에 추가), after(텍스트 뒤에 추가), first-line(첫 번째 줄만 변경), marker(목록의 글머리 기호를 변경), placeholder(input창 안의 글씨를 변경) */
-        /* li::first-letter : li 요소의 첫 번째 글자만 크기를 20px로 하겠다.(기본값은 16px) */
-        p::before {
-            content:"앞에 추가한 텍스트";
-            color: red;
-        }
-        p::after {
-            content:"뒤에 추가한 텍스트";
-            color: blue;
-        }
-        li::first-letter{
-            font-size: 20px;
-        }
-        li::marker{
-            color: teal;
-        }
-        input::placeholder{
-            font-size: 24px;
-            color: black;
-        }
+      /* inherit(상속-Inheritance) : 하위 요소가 상위 요소의 스타일 속성값을 물려받는 것(하위요소가 자기 스타일이 없는 경우에만 상속) */
+      /* 상속이 되는 속성과 안되는 속성이 있다! (안되는 속성 예. background(color,image,repeat), border, display, width, height 등) */
+
+      /* initial : 상속의 기본값 */
+
+      /* unset(inherit과 initial 조합) : 상속 속성에는 inherit처럼, 상속되지 않는 속성은 initial처럼 적용 */
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+
+        color: tomato;
+        font-size: 32px;
+        border: 3px dashed red;
+      }
+      p {
+        /* 
+            상속받으면 tomato색이어야 하지만 initial을 사옹해 color의 기본값인 검정으로,
+            font-size와 border는 inherit해서 상위요소 속성을 상속받는다.(border같은 경우엔 원래 상속이 안되는 속성인데, inherit사용으로 상속이 가능해짐)
+            font-family와 background-color를 unset으로 지정하면, font-family는 원래 상속받는 속성이니까 inherit으로, background-color는 상속되지 않는 속성이니까 initial로
+        */
+        color: initial;
+        font-size: inherit;
+        border: inherit;
+        font-family: unset;
+        background-color: unset;
+      }
     </style>
-</head>
-<body>
-    <p>원래 쓰여 있던 내용</p>
-    <input type="text" placeholder="아무거나 쓰세요!">
-    <ul>
-        <li>아메리카노</li>
-        <li>카페라떼</li>
-        <li>카푸치노</li>
-    </ul>
-</body>
+  </head>
+  <body>
+    <div>
+      <p>가운데 p 태그</p>
+    </div>
+  </body>
 </html>
